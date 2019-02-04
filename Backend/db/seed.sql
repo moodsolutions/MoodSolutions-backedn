@@ -32,7 +32,9 @@ CREATE TABLE providers
   email varchar,
   password_digest VARCHAR NOT NULL,
   phone VARCHAR,
-  img varchar
+  type VARCHAR,
+  img varchar,
+  placeID int
   -- offer_id int,
   -- FOREIGN KEY (offer_id)REFERENCES offers
 );
@@ -40,11 +42,11 @@ CREATE TABLE providers
 INSERT INTO providers
   (name, email,password_digest, phone, img)
 VALUES
-  ('Alanoud', 'noudi.mss@gmail.com', 'anoud@95' , '0554040', 'https://resizer-aw.devops.arabiaweather.com/resize?url=https://adminassets.devops.arabiaweather.com/sites/default/files/field/image/KC-1.jpg&size=650x0&force_jpg=1'),
-  ('HAmoud' , 'hamou@gmail.com'    , 'hammd@21', '0554040', 'https://images.zawya.com/images/cia/zXlarge/180502052754EUWU.jpg'),
-  ('Muhrah' , 'muhrah01@gmail.com' , 'mugra@112', '0554040', 'https://aswatpost.com/wp-content/uploads/2018/07/The-Globe-Restaurant.jpg'),
-  ('Jumanah', 'juharbi@gmail.com'   , 'jharbi@019', '0554040', 'https://i.ytimg.com/vi/zybgfvVUYbU/maxresdefault.jpg'),
-  ('Marwa'  , 'marwa12o@gmail.com', 'skdfnksj', '0554040', 'https://img.theculturetrip.com/768x/images/56-265400-elements-1.jpg');
+  ('Alanoud', 'noudi.mss@gmail.com', 'anoud@95' , '0554040','mall' ,'https://resizer-aw.devops.arabiaweather.com/resize?url=https://adminassets.devops.arabiaweather.com/sites/default/files/field/image/KC-1.jpg&size=650x0&force_jpg=1',1),
+  ('HAmoud' , 'hamou@gmail.com'    , 'hammd@21', '0554040','restaurant' ,'https://images.zawya.com/images/cia/zXlarge/180502052754EUWU.jpg',2),
+  ('Muhrah' , 'muhrah01@gmail.com' , 'mugra@112', '0554040','entertainment' ,'https://aswatpost.com/wp-content/uploads/2018/07/The-Globe-Restaurant.jpg',3),
+  ('Jumanah', 'juharbi@gmail.com'   , 'jharbi@019', '0554040','services', 'https://i.ytimg.com/vi/zybgfvVUYbU/maxresdefault.jpg',4),
+  ('Marwa'  , 'marwa12o@gmail.com', 'skdfnksj', '0554040','mall', 'https://img.theculturetrip.com/768x/images/56-265400-elements-1.jpg',5);
 
 
 CREATE TABLE offers
@@ -54,12 +56,14 @@ CREATE TABLE offers
   img varchar,
   provider_id int,
   customer_id int,
+  place_id int,
   FOREIGN KEY(provider_id) REFERENCES providers,
-  FOREIGN KEY(customer_id) REFERENCES customers
+  FOREIGN KEY(customer_id) REFERENCES customers,
+  FOREIGN KEY(place_id) REFERENCES providers
 );
 
 INSERT INTO offers
-  (offer, img, provider_id, customer_id)
+  (offer, img, provider_id, customer_id, place_id)
 VALUES
   ('50%', 'https://static.giantbomb.com/uploads/scale_small/13/135472/1891758-001bulbasaur.png', 1, 4),
   ('40%', 'https://static.giantbomb.com/uploads/scale_small/13/135472/1891758-001bulbasaur.png', 5, 3),
