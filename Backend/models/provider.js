@@ -29,7 +29,7 @@ provider.find = (req,res,next) =>{
 
 provider.create = (req,res,next) =>{
 const salt = bcrypt.genSaltSync(10);
-  db.one("INSERT INTO providers (name,email,password_digest,phone, img) VALUES($1,$2,$3,$4,$5) RETURNING *;",
+  db.one("INSERT INTO providers (name,email,password_digest,phone, img, placeID) VALUES($1,$2,$3,$4,$5,$6) RETURNING *;",
     [
       req.body.name,
       req.body.email,
@@ -87,8 +87,8 @@ provider.findEmail = (req, res, next) => {
     });
 };
 provider.update = (req,res,next) =>{
-  db.one('UPDATE providers SET name=$1,email=$2,password_digest=$3,phone=$4,img=$5 WHERE id=$6 RETURNING *;',
-  [req.body.name, req.body.email,req.body.password_digest,req.body.phone,req.body.img])
+  db.one('UPDATE providers SET name=$1,email=$2,password_digest=$3,phone=$4,img=$5,placeID=$6 WHERE id=$7 RETURNING *;',
+  [req.body.name, req.body.email,req.body.password_digest,req.body.phone,req.body.img, req.body.placeID])
   .then((data) =>{
       res.locals.provider = data;
       next();
