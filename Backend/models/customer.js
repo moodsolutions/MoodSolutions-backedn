@@ -30,7 +30,7 @@ customer.find=(req,res,next)=>{
 
 customer.create = (req,res,next) =>{
     console.log('yey')
-    db.one('INSERT INTO customers (name ,phone , email) VALUES ($1,$2,$3) RETURNING *;', [req.body.name,req.body.phone, req.body.email])
+    db.one('INSERT INTO customers (name ,phone , email,lon,lat) VALUES ($1,$2,$3,$4,$5) RETURNING *;', [req.body.name,req.body.phone, req.body.email,req.body.lon,req.body.lat])
     .then((data) =>{
         res.locals.customer = data;
         next();
@@ -42,8 +42,8 @@ customer.create = (req,res,next) =>{
 }
 
 customer.update = (req,res,next) =>{
-    db.one('UPDATE customers SET name=$1,email=$2,phone=$3,lat=$4,lon=$5,img=$6 WHERE id=$7 RETURNING id;',
-    [req.body.name, req.body.email,req.body.phone,req.body.lat,req.body.lon,req.body.img])
+    db.one('UPDATE customers SET name=$1,email=$2,phone=$3,lon=$4,lat=$5 WHERE id=$6 RETURNING id;',
+    [req.body.name, req.body.email,req.body.phone,req.body.lon,req.body.lat])
     .then((data) =>{
         res.locals.customer = data;
         next();
