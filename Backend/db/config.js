@@ -6,8 +6,8 @@ var config = {
   host: "localhost",
   port: 5432,
   database: 'mood_db',
-  user: "anoud",
-  password: 1234567890
+  user: "khalid",
+
 };
 
 
