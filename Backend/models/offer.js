@@ -38,21 +38,21 @@ offer.find=(req,res,next)=>{
     })
 }
 
-// offer.findProviderOffer=(req,res,next)=>{
-//     db.one('SELECT * FROM offers WHERE id=$1;',[req.params.id])
-//     .then((data) =>{
-//         res.locals.offer = data;
-//         next();
-//     })
-//     .catch((error) => {
-//         console.log(error);
-//         next();
-//     })
-// }
+offer.findProviderOffer=(req,res,next)=>{
+    db.one('SELECT providers.* , offers.* FROM providers, offers where offers.provider_id=providers.id and providers.id=$1;',[req.params.id])
+    .then((data) =>{
+        res.locals.offer = data;
+        next();
+    })
+    .catch((error) => {
+        console.log(error);
+        next();
+    })
+}
 
 offer.create = (req,res,next) =>{
 
-    db.one('INSERT INTO offers ( offer,img,provider_id,customer_id) VALUES ($1,$2,$3,$4) RETURNING *;', 
+    db.one('INSERT INTO offers ( offer,img,provider_id,customer_id,place_id) VALUES ($1,$2,$3,$4) RETURNING *;', 
     [req.body.offer,req.body.img,req.body.provider_id, req.body.customer_id])
 
     .then((data) =>{
@@ -68,7 +68,7 @@ offer.create = (req,res,next) =>{
 offer.getProviderOffer = (req,res,next) => { 
      
     console.log("\n\n\n getProviderOffer")
-    db.manyOrNone('SELECT * FROM offers where provider_id= $4', [req.user.id])
+    db.manyOrNone('SELECT * FROM offers where id= $1', [req.user.id])
     .then((data) =>{
         console.log(data)
         res.locals.offer = data;

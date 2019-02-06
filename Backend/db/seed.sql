@@ -43,13 +43,14 @@ CREATE TABLE providers
 
 
 INSERT INTO providers
-  (name, email, password_digest, phone,type, img , placeID)
+  (name, email, password_digest, phone, category, img)
 VALUES
-  ('Alanoud', 'noudi.mss@gmail.com', 'anoud@95', '0554040','mall','https://resizer-aw.devops.arabiaweather.com/resize?url=https://adminassets.devops.arabiaweather.com/sites/default/files/field/image/KC-1.jpg&size=650x0&force_jpg=1',1),
-  ('HAmoud', 'hamou@gmail.com', 'hammd@21', '0554040','restaurant','https://images.zawya.com/images/cia/zXlarge/180502052754EUWU.jpg',2),
-  ('Muhrah', 'muhrah01@gmail.com', 'mugra@112', '0554040','entertainment','https://aswatpost.com/wp-content/uploads/2018/07/The-Globe-Restaurant.jpg',3),
-  ('Jumanah', 'juharbi@gmail.com', 'jharbi@019', '0554040','services', 'https://i.ytimg.com/vi/zybgfvVUYbU/maxresdefault.jpg',4),
-  ('Marwa', 'marwa12o@gmail.com', 'skdfnksj', '0554040','mall', 'https://img.theculturetrip.com/768x/images/56-265400-elements-1.jpg',5);
+  ('Alanoud', 'noudi.mss@gmail.com', 'anoud@95' , '0554040','mall' ,'https://resizer-aw.devops.arabiaweather.com/resize?url=https://adminassets.devops.arabiaweather.com/sites/default/files/field/image/KC-1.jpg&size=650x0&force_jpg=1'),
+  ('HAmoud' , 'hamou@gmail.com'    , 'hammd@21', '0554040','restaurant' ,'https://images.zawya.com/images/cia/zXlarge/180502052754EUWU.jpg'),
+  ('Muhrah' , 'muhrah01@gmail.com' , 'mugra@112', '0554040','entertainment' ,'https://aswatpost.com/wp-content/uploads/2018/07/The-Globe-Restaurant.jpg'),
+  ('Jumanah', 'juharbi@gmail.com'   , 'jharbi@019', '0554040','services', 'https://i.ytimg.com/vi/zybgfvVUYbU/maxresdefault.jpg'),
+  ('Marwa'  , 'marwa12o@gmail.com', 'skdfnksj', '0554040','mall', 'https://img.theculturetrip.com/768x/images/56-265400-elements-1.jpg');
+
 
 
 CREATE TABLE offers
@@ -70,11 +71,11 @@ CREATE TABLE offers
 INSERT INTO offers
   (offer, img, provider_id, customer_id )
 VALUES
-  ('50%', 'https://static.giantbomb.com/uploads/scale_small/13/135472/1891758-001bulbasaur.png', 1, 4),
-  ('40%', 'https://static.giantbomb.com/uploads/scale_small/13/135472/1891758-001bulbasaur.png', 5, 3),
-  ('35%', 'https://static.giantbomb.com/uploads/scale_small/13/135472/1891758-001bulbasaur.png', 3, 2),
-  ('20%', 'https://static.giantbomb.com/uploads/scale_small/13/135472/1891758-001bulbasaur.png', 4, 1),
-  ('10%', 'https://static.giantbomb.com/uploads/scale_small/13/135472/1891758-001bulbasaur.png', 2, 3);
+  ('50%', 'https://static.giantbomb.com/uploads/scale_small/13/135472/1891758-001bulbasaur.png', 1, 4, 1),
+  ('40%', 'https://static.giantbomb.com/uploads/scale_small/13/135472/1891758-001bulbasaur.png', 5, 3, 2),
+  ('35%', 'https://static.giantbomb.com/uploads/scale_small/13/135472/1891758-001bulbasaur.png', 3, 2, 3),
+  ('20%', 'https://static.giantbomb.com/uploads/scale_small/13/135472/1891758-001bulbasaur.png', 4, 1, 4),
+  ('10%', 'https://static.giantbomb.com/uploads/scale_small/13/135472/1891758-001bulbasaur.png', 2, 3, 5);
 
 
 

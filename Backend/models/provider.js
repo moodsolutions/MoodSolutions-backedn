@@ -16,7 +16,7 @@ provider.getAll = (req,res,next) =>{
 
 provider.find = (req,res,next) =>{
     // console.log(req.provider.id)
-    db.one('SELECT * FROM providers where id =$1;', [req.params.id])
+    db.one('SELECT * FROM providers where name =$1;', [req.params.name])
     .then((data) => {
         res.locals.provider = data;
         next();
