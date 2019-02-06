@@ -42,11 +42,11 @@ CREATE TABLE providers
 INSERT INTO providers
   (name, email, password_digest, phone, category, img)
 VALUES
-  ('Alanoud', 'noudi.mss@gmail.com', 'anoud@95' , '0554040','mall' ,'https://resizer-aw.devops.arabiaweather.com/resize?url=https://adminassets.devops.arabiaweather.com/sites/default/files/field/image/KC-1.jpg&size=650x0&force_jpg=1',1),
-  ('HAmoud' , 'hamou@gmail.com'    , 'hammd@21', '0554040','restaurant' ,'https://images.zawya.com/images/cia/zXlarge/180502052754EUWU.jpg',2),
-  ('Muhrah' , 'muhrah01@gmail.com' , 'mugra@112', '0554040','entertainment' ,'https://aswatpost.com/wp-content/uploads/2018/07/The-Globe-Restaurant.jpg',3),
-  ('Jumanah', 'juharbi@gmail.com'   , 'jharbi@019', '0554040','services', 'https://i.ytimg.com/vi/zybgfvVUYbU/maxresdefault.jpg',4),
-  ('Marwa'  , 'marwa12o@gmail.com', 'skdfnksj', '0554040','mall', 'https://img.theculturetrip.com/768x/images/56-265400-elements-1.jpg',5);
+  ('Alanoud', 'noudi.mss@gmail.com', 'anoud@95' , '0554040','mall' ,'https://resizer-aw.devops.arabiaweather.com/resize?url=https://adminassets.devops.arabiaweather.com/sites/default/files/field/image/KC-1.jpg&size=650x0&force_jpg=1'),
+  ('HAmoud' , 'hamou@gmail.com'    , 'hammd@21', '0554040','restaurant' ,'https://images.zawya.com/images/cia/zXlarge/180502052754EUWU.jpg'),
+  ('Muhrah' , 'muhrah01@gmail.com' , 'mugra@112', '0554040','entertainment' ,'https://aswatpost.com/wp-content/uploads/2018/07/The-Globe-Restaurant.jpg'),
+  ('Jumanah', 'juharbi@gmail.com'   , 'jharbi@019', '0554040','services', 'https://i.ytimg.com/vi/zybgfvVUYbU/maxresdefault.jpg'),
+  ('Marwa'  , 'marwa12o@gmail.com', 'skdfnksj', '0554040','mall', 'https://img.theculturetrip.com/768x/images/56-265400-elements-1.jpg');
 
 
 CREATE TABLE offers
