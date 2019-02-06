@@ -39,6 +39,9 @@ CREATE TABLE providers
   -- FOREIGN KEY (offer_id)REFERENCES offers
 );
 
+
+
+
 INSERT INTO providers
   (name, email, password_digest, phone, category, img)
 VALUES
@@ -47,6 +50,7 @@ VALUES
   ('Muhrah' , 'muhrah01@gmail.com' , 'mugra@112', '0554040','entertainment' ,'https://aswatpost.com/wp-content/uploads/2018/07/The-Globe-Restaurant.jpg'),
   ('Jumanah', 'juharbi@gmail.com'   , 'jharbi@019', '0554040','services', 'https://i.ytimg.com/vi/zybgfvVUYbU/maxresdefault.jpg'),
   ('Marwa'  , 'marwa12o@gmail.com', 'skdfnksj', '0554040','mall', 'https://img.theculturetrip.com/768x/images/56-265400-elements-1.jpg');
+
 
 
 CREATE TABLE offers
@@ -62,8 +66,10 @@ CREATE TABLE offers
   FOREIGN KEY(place_id) REFERENCES providers
 );
 
+-- fetch the Places APi and get the id 
+
 INSERT INTO offers
-  (offer, img, provider_id, customer_id, place_id)
+  (offer, img, provider_id, customer_id )
 VALUES
   ('50%', 'https://static.giantbomb.com/uploads/scale_small/13/135472/1891758-001bulbasaur.png', 1, 4, 1),
   ('40%', 'https://static.giantbomb.com/uploads/scale_small/13/135472/1891758-001bulbasaur.png', 5, 3, 2),
