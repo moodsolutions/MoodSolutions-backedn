@@ -3,7 +3,17 @@ const db = require('../db/config');
 const offer ={}
 
 offer.getAll = (req,res,next) =>{
-    db.manyOrNone('SELECT * FROM offers;')
+
+    console.log("params" , req.query.cat)
+    let query
+    if(req.query.cat){
+        query = `SELECT offers.* from offers, providers where offers.provider_id=providers.id and providers.type='${req.query.cat}';`
+    } else {
+        query = 'SELECT * FROM offers;'
+    }
+
+    console.log(query)
+    db.manyOrNone(query)
     .then((data) => {
         res.locals.offers = data;
         next();
