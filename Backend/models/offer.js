@@ -7,7 +7,7 @@ offer.getAll = (req,res,next) =>{
     console.log("params" , req.query.cat)
     let query
     if(req.query.cat){
-        query = `SELECT offers.* from offers, providers where offers.provider_id=providers.id and providers.type='${req.query.cat}';`
+        query = `SELECT offers.* from offers, providers where offers.provider_id=providers.id and providers.category='${req.query.cat}';`
     } else {
         query = 'SELECT * FROM offers;'
     }
@@ -62,7 +62,7 @@ offer.findProviderOffer=(req,res,next)=>{
 
 offer.create = (req,res,next) =>{
 
-    db.one('INSERT INTO offers ( offer,img,provider_id,customer_id,place_id) VALUES ($1,$2,$3,$4) RETURNING *;', 
+    db.one('INSERT INTO offers ( offer,img,provider_id,customer_id) VALUES ($1,$2,$3,$4) RETURNING *;', 
     [req.body.offer,req.body.img,req.body.provider_id, req.body.customer_id])
 
     .then((data) =>{

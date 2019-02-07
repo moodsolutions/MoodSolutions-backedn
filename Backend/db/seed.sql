@@ -30,52 +30,48 @@ CREATE TABLE providers
   id serial primary key,
   name varchar,
   email varchar,
-  password_digest VARCHAR NOT NULL,
+  password VARCHAR NOT NULL,
   phone VARCHAR,
   category VARCHAR,
-  img varchar,
-  placeID int
+  
+  img varchar
+
   -- offer_id int,
   -- FOREIGN KEY (offer_id)REFERENCES offers
 );
 
 
-
-
-INSERT INTO providers
-  (name, email, password_digest, phone, category, img)
+  INSERT INTO providers
+  (name, email, password, phone, category, img)
 VALUES
-  ('Alanoud', 'noudi.mss@gmail.com', 'anoud@95' , '0554040','mall' ,'https://resizer-aw.devops.arabiaweather.com/resize?url=https://adminassets.devops.arabiaweather.com/sites/default/files/field/image/KC-1.jpg&size=650x0&force_jpg=1'),
-  ('HAmoud' , 'hamou@gmail.com'    , 'hammd@21', '0554040','restaurant' ,'https://images.zawya.com/images/cia/zXlarge/180502052754EUWU.jpg'),
-  ('Muhrah' , 'muhrah01@gmail.com' , 'mugra@112', '0554040','entertainment' ,'https://aswatpost.com/wp-content/uploads/2018/07/The-Globe-Restaurant.jpg'),
-  ('Jumanah', 'juharbi@gmail.com'   , 'jharbi@019', '0554040','services', 'https://i.ytimg.com/vi/zybgfvVUYbU/maxresdefault.jpg'),
-  ('Marwa'  , 'marwa12o@gmail.com', 'skdfnksj', '0554040','mall', 'https://img.theculturetrip.com/768x/images/56-265400-elements-1.jpg');
-
-
-
+  ('Kingdom Center', 'kigdomCenter@gmail.com', '12345' , '0554040', 'mall' , 'https://resizer-aw.devops.arabiaweather.com/resize?url=https://adminassets.devops.arabiaweather.com/sites/default/files/field/image/KC-1.jpg&size=650x0&force_jpg=1'),
+  ('Riyadh Park' , 'riyadh_parck@gmail.com'    , '1@457', '0554040', 'mall' , 'https://images.zawya.com/images/cia/zXlarge/180502052754EUWU.jpg'),
+  ('Alfaisaliah' , 'faisaliah@gmail.com' , '45a@3', '0554040', 'restaurant' , 'https://aswatpost.com/wp-content/uploads/2018/07/The-Globe-Restaurant.jpg'),
+  ('Easy store', 'easy-store@gmail.com'   , 'jharbi@019', '0554040', 'services', 'https://hrdiscussion.com/imgcache/29326.imgcache'),
+  ('Elements'  , 'elements@gmail.com', 'skdfnksj', '0554040', 'restaurant', 'https://img.theculturetrip.com/768x/images/56-265400-elements-1.jpg'),
+  ('Matic', 'Matic@gmail.com', 'skdfnksj', '0554040', 'services', 'https://pbs.twimg.com/media/Cx-U2e7XAAA2U-B.jpg'),
+  ('Diamond', 'diamond@gmail.com', 'skdfnksj', '0554040', 'restaurant', 'https://pbs.twimg.com/media/C0GvS8iXUAAy7N3.jpg'),
+  ('Hayat mall', 'hayatmall@gmail.com', 'skdfnksj', '0554040', 'mall', 'http://www.alandalus.com.sa/portals/0/images/Alandalus-Arabic/hayatmall-2.jpg'),
+  ('Ezhalha', 'hayatmall@gmail.com', 'skdfnksj', '0554040', 'services', 'https://pbs.twimg.com/media/DO2WurTW0AAJ2eD.jpg');
+  
 CREATE TABLE offers
 (
   id serial primary key,
   offer varchar,
-  img varchar,
   provider_id int,
   customer_id int,
-  place_id int,
   FOREIGN KEY(provider_id) REFERENCES providers,
-  FOREIGN KEY(customer_id) REFERENCES customers,
-  FOREIGN KEY(place_id) REFERENCES providers
+  FOREIGN KEY(customer_id) REFERENCES customers
+  
 );
 
 -- fetch the Places APi and get the id 
 
 INSERT INTO offers
-  (offer, img, provider_id, customer_id )
+  (offer, provider_id, customer_id )
 VALUES
-  ('50%', 'https://static.giantbomb.com/uploads/scale_small/13/135472/1891758-001bulbasaur.png', 1, 4, 1),
-  ('40%', 'https://static.giantbomb.com/uploads/scale_small/13/135472/1891758-001bulbasaur.png', 5, 3, 2),
-  ('35%', 'https://static.giantbomb.com/uploads/scale_small/13/135472/1891758-001bulbasaur.png', 3, 2, 3),
-  ('20%', 'https://static.giantbomb.com/uploads/scale_small/13/135472/1891758-001bulbasaur.png', 4, 1, 4),
-  ('10%', 'https://static.giantbomb.com/uploads/scale_small/13/135472/1891758-001bulbasaur.png', 2, 3, 5);
-
-
-
+  ('50%', 1, 4),
+  ('40%', 5, 3),
+  ('35%', 3, 2),
+  ('20%', 4, 1),
+  ('10%', 2, 3);
